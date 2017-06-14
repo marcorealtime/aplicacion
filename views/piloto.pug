@@ -1,0 +1,94 @@
+doctype html
+html(ng-app='sampleApp2')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		title Circuito T.Real/Pilotos
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
+		link(rel='stylesheet', href='/stylesheets/styles.min.css')
+	body
+		nav.navbar.navbar-default
+			.container
+				.navbar-header
+					a.navbar-brand.navbar-link(href='#')
+						i.glyphicon.glyphicon-phone
+						| Circuito Tiempo Real
+					button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+				#navcol-1.collapse.navbar-collapse
+					ul.nav.navbar-nav.navbar-right
+						li(role='presentation')
+							a(href='/') INICIO
+						li.active(role='presentation')
+							a(href='/piloto') PILOTOS
+						li(role='presentation')
+							a(href='/ranking') RANKING
+						li(role='presentation')
+							a(href='/calendario') CALENDARIO
+						li(role='presentation')
+							a.dropdown-toggle(data-toggle='dropdown', href='#')
+								| DIRECTO
+								span.caret
+							ul.dropdown-menu
+								li(role='presentation')
+									a(href='#') CLASIFICACIÓN
+								li(role='presentation')
+									a(href='#') CARRERA
+						li(role='presentation')
+							a(href='#') GALERIA
+						li(role='presentation')
+							a(href='#') MEDIA
+		.container
+			.row(ng-controller='SampleCtrlcat2')
+				.col-md-4.col-md-push-7.phone-preview
+					.iphone-mockup
+				.col-md-6.col-md-pull-3.get-it
+					h4 Lista de Pilotos
+					h3 Clase
+					select(name='singleSelect', ng-model='data.singleSelect', ng-change='LoadSessionData(data.singleSelect)', style='width:100%')
+						option(value='', disabled='', selected='') Seleccionar Clase
+						option(ng-repeat='x1 in categoria') {{x1.nombre}}
+					.panel.panel-default(ng-repeat='x1 in pilotos')
+						.panel-heading
+							h3.panel-title
+								p Piloto:{{x1.piloto}}         Navegante:{{x1.copiloto}}
+								img.img-responsive.center-block(id='imagen{{x1.numero}}', ng-src='{{getImageUrl(x1.numero)}}')
+						.panel-body
+							a.btn.btn-info(href='#demo{{x1.numero}}', data-toggle='collapse' style='width:100%') INFO
+							.collapse(id='demo{{x1.numero}}')
+								p.text-primary Numero:{{x1.numero}}
+								p.text-primary Piloto:{{x1.piloto}}
+								p.text-primary Navegante:{{x1.copiloto}}
+								p.text-primary Origen:{{x1.origen}}
+								p.text-primary Asoc :{{x1.asoc}}
+								p.text-primary Marca:{{x1.marca}}
+								p.text-primary Equipo:{{x1.descrip}}
+
+
+		section.testimonials
+		footer.site-footer
+			.container
+				.row
+					.col-sm-6
+						h5 Mobile App 2017 TODOS LOS DERECHOS RESERVADOS
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
+		script(src='https://www.gstatic.com/firebasejs/3.8.0/firebase.js')
+		script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
+		script.
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyApCiSg8NDNbLpq6AF5MktamVSdqO0dBvk",
+				authDomain: "aadeta2017.firebaseapp.com",
+				databaseURL: "https://aadeta2017.firebaseio.com",
+				projectId: "aadeta2017",
+				storageBucket: "aadeta2017.appspot.com",
+				messagingSenderId: "224653888690"
+			};
+			firebase.initializeApp(config);
+		script(src='/javascripts/codigoinscritos.js')
