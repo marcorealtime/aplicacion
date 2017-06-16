@@ -1523,3 +1523,10 @@ h2 span {
 #reloj { 
          font: normal 20px digital_dream; text-align: center; 
            }
+
+#reloj2 { 
+         font: normal 10px digital_dream; text-align: center; color:#0909DE;
+           }
+#reloj3 { 
+         font: normal 10px digital_dream;  color:#0909DE;
+           }

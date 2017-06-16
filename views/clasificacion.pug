@@ -58,7 +58,9 @@ html(ng-app='sampleApp2')
                         .panel-heading
                             h3.panel-title
                                 h4 {{units.indexOf(x1)+1}}
-                                h5 N° {{x1.auto}} 
+                                h5 
+                                    span.icon-key2
+                                    | {{x1.auto}} 
                                 h5
                                     span.icon-user
                                     | {{x1.nombre}}
@@ -69,19 +71,22 @@ html(ng-app='sampleApp2')
                                     h2  
                                         #reloj
                                             | {{x1.tiempo}}
-                                p.pull-right +{{x1.tiempoa}}
+                                #reloj2
+                                    p.pull-right +{{x1.tiempoa}}
                                 br
-                                p.text-primary Rep:{{x1.repe}}
-                                p.text-warning Pena :{{x1.pena}}
-                                br
+                                #reloj3
+                                    p.text-primary Rep:{{x1.repe}}
+                                    p.text-warning Pena :{{x1.pena}}
                         .panel-body
                             a.btn.btn-primary.btn-xs(href='#cla{{units.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
                             .collapse(id='cla{{units.indexOf(x1)+1}}')
-                                p.text-primary Velocidad:{{x1.km}} km/h       
-                                p.text-primary Dif. C/u:{{x1.tiempoa}}
-                                p.text-primary Dif 1° C/u:{{x1.tiempop}}
-                                p.text-primary MANGA:{{x1.manga}}
-                                span.icon-home3
+                                br
+                                #reloj3
+                                    p Velocidad:{{x1.km}} km/h       
+                                    p Dif. C/u:{{x1.tiempoa}}
+                                    p Dif 1° C/u:{{x1.tiempop}}
+                                    p MANGA:{{x1.manga}}
+                                
 
                     
                             
