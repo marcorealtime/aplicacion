@@ -1525,10 +1525,10 @@ h2 span {
            }
 
 #reloj2 { 
-         font: normal 10px digital_dream; text-align: center; color:#0909DE;
+         font: normal 13px digital_dream; text-align: center; color:#0909DE;
            }
 #reloj3 { 
-         font: normal 10px digital_dream;  color:#0909DE;
+         font: normal 10px fuentem;  color:#0909DE;
            }
 
 @font-face {
@@ -1538,6 +1538,38 @@ h2 span {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'fuentedream';
+    src: url('fontsm/space age.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 h5.tipografia1{
   font: normal 17px fuentem;  
+}
+
+
+h4.tipografia2{
+  font: normal 20px fuentem;  
+}
+
+option{
+  font: normal 20px fuentem; 
+}
+
+h3.tipografia3{
+  font: normal 10px fuentem; color:#FFFFFF;
+}
+
+h6.tipografia4{
+  font: normal 12px fuentedream; 
+}
+
+th{
+  font: normal 12px fuentem;
+}
+
+td{
+  font: normal 12px fuentem;
 }
