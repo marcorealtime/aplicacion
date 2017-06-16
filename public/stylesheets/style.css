@@ -1530,3 +1530,14 @@ h2 span {
 #reloj3 { 
          font: normal 10px digital_dream;  color:#0909DE;
            }
+
+@font-face {
+    font-family: 'fuentem';
+    src: url('fontsm/hemi head bd it.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h5.tipografia1{
+  font: normal 17px fuentem;  
+}
