@@ -1573,3 +1573,8 @@ th{
 td{
   font: normal 12px fuentem;
 }
+
+textarea::placeholder {
+  font: normal 15px fuentem; 
+  color: blue;
+}

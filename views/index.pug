@@ -13,7 +13,7 @@ html(ng-app='sampleAppindex')
       .container
         .navbar-header
           a.navbar-brand.navbar-link(href='#')
-            h3.tipografia3 Circuito Bolivia
+            h3.tipografia3 Circuito TUPIZA
           button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
             span.sr-only Toggle navigation
             span.icon-bar
@@ -49,23 +49,26 @@ html(ng-app='sampleAppindex')
             .iphone-mockup
           .col-md-6.col-md-pull-3.get-it
             h1 CIRCUITO
-            h1 BOLIVIA
+            h1 TUPIZA
             p SIGUE LA CARRERAS DE CIRCUITO EN TIEMPO REAL-
             p
     section.testimonials
       h2.text-center BIENVENIDO
       blockquote
-        footer BOLIVIA
+        footer TUPIZA-BOLIVIA
     section.features
       .container
         .row(ng-controller='SampleCtrlcatindex')
           .col-md-6
             h4.tipografia2 EN VIVO CARRERA : {{carreradirecto}}
             h4.tipografia2
-                  a.pull-right(href="/clasificacion/{{carreradirecto}}")  VER CLASIFICACIÓN
+              a.pull-right(href="/clasificacion/{{carreradirecto}}")  VER CLASIFICACIÓN
+            br
             br
             h4.tipografia2
-                  a.pull-right(href="/carrera/{{carreradirecto}}")  VER CARRERA
+              a.pull-right(href="/carrera/{{carreradirecto}}")  VER CARRERA
+            br
+            br
           .col-md-6
             .row.icon-features
               .col-xs-4.icon-feature
