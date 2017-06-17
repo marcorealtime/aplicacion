@@ -24,6 +24,7 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 			        
 			        console.log(val);
 			        app.value('Categoria',val);
+			        $scope.clase=val;
 			        
 			        var ref = firebase.database().ref().child($scope.carreradirecto+"/Clasificacion/"+val).orderByChild("tiempo");
 				  		$scope.pilotos = $firebaseArray(ref);

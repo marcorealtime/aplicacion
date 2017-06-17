@@ -13,8 +13,7 @@ html(ng-app='sampleApp2')
             .container
                 .navbar-header
                     a.navbar-brand.navbar-link(href='#')
-                        i.glyphicon.glyphicon-phone
-                        | Circuito Tiempo Real
+                        h3.tipografia3 Circuito Bolivia
                     button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
                         span.sr-only Toggle navigation
                         span.icon-bar
@@ -58,6 +57,7 @@ html(ng-app='sampleApp2')
                         .panel-heading
                             h3.panel-title
                                 h5.tipografia1 {{units.indexOf(x1)+1}}
+                                    p.pull-right {{clase}}
                                 h5.tipografia1 
                                     span.icon-key2
                                     | {{x1.auto}} 

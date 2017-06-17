@@ -26,6 +26,7 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 			        
 			        console.log(val);
 			        app.value('Categoria',val);
+			        $scope.clase=val;
 
 			        console.log("common"+workflowData);
 			        
