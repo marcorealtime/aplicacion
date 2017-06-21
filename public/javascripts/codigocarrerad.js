@@ -1,28 +1,15 @@
-var app = angular.module("sampleAppcarrerad", ["firebase"]);
+var app = angular.module("sampleAppcd", ["firebase"]);
 
-app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
-	var ref = firebase.database().ref().child("categoria");
-	$scope.categoria = $firebaseArray(ref);
+app.controller("SampleCtrlcd", function($scope, $firebaseArray) {
 	
 	
+	
 
 
 
-
-		
-		$scope.LoadSessionData = function(val) {
-			
-			
-			//console log
-			        
-			        console.log(val);
-			        app.value('Categoria',val);
-			        $scope.clase=val;
-			        var f="FINALIZO";
-			        
-			        var ref = firebase.database().ref().child(workflowData+"/Carrera/"+val);
-				  		$scope.pilotos = $firebaseArray(ref);
-				
+				var ref = firebase.database().ref().child(workflowData+"/General/");
+				  	$scope.pilotos = $firebaseArray(ref);
+				  	console.log($scope.pilotos);
 				  	ref.orderByChild("tiempo").on('value', function(snapshot) {
 				  		//console.log("numerod e hios"+snapshot.numChildren());
 
@@ -42,7 +29,7 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 
 							//var dato=data.child("estado").val();
 
-							if(data.child("estado").val()=='CARRERA'){
+							if(data.child("estado").val()=='FINALIZO'){
 
 
 								if(h==0){
@@ -53,14 +40,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: "-----",
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
  							   	tiempop:"-----",
  							   	estado:data.child("estado").val(),
- 							   	color:'d5e1df',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	color:'39ac39',
+ 							   	clase:data.child("clase").val()
+ 							   	
 							};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -76,14 +62,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.unitscorriendo[h-1].tiempo),
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
  							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.unitscorriendo[0].tiempo),
  							   	estado:data.child("estado").val(),
- 							   	color:'d5e1df',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	color:'39ac39',
+ 							   	clase:data.child("clase").val()
+ 							   	
 								};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -106,7 +91,7 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 
 
 
-							if(data.child("estado").val()=='FINALIZO'){
+							if(data.child("estado").val()=='CARRERA'){
 
 
 								if(i==0){
@@ -117,14 +102,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: "-----",
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
  							   	tiempop:"-----",
  							   	estado:data.child("estado").val(),
  							   	color:'b5e7a0',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	clase:data.child("clase").val()
+ 							   	
 							};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -140,14 +124,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.units[i-1].tiempo),
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
  							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.units[0].tiempo),
  							   	estado:data.child("estado").val(),
  							   	color:'b5e7a0',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	clase:data.child("clase").val()
+ 							   
 							};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -171,14 +154,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: "-------",
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
  							   	km: "------",
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'b9936c',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	clase:data.child("clase").val()
+ 							   	
 							};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -203,14 +185,13 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
   								nave: nombretop( data.child("nombre").val(),2),
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: "-------",
- 							   	repe: data.child("repechaje").val(),
- 							   	manga: data.child("manga").val(),
  							   	pena: data.child("pena").val(),
  							   	km: "---------",
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'eca1a6',
- 							   	vueltas: data.child("vuelta").val().replace(/,/g, '\n')
+ 							   	clase:data.child("clase").val()
+ 							   	
 							};
   							//myElement.id =i;
 							//myElement.value=data.child("nombre").val();
@@ -241,47 +222,68 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 
 
 					function restTimes(start, end) {
+							console.log("llegando para sumar"+start+"  "+end);
 		  		  times = [];
 		  		  times1 = start.split(':');
 		  		  times2 = end.split(':');
 
 		  		  for (var i = 0; i < 3; i++) {
-		  		    times1[i] = (isNaN(parseFloat(times1[i]))) ? 0 : parseFloat(times1[i])
-		  		    times2[i] = (isNaN(parseFloat(times2[i]))) ? 0 : parseFloat(times2[i])
-		  		    times[i] = times1[i] - times2[i];
-		  		  }
+						times1[i] = (isNaN(parseFloat(times1[i]))) ? 0 : parseFloat(times1[i])
+						times2[i] = (isNaN(parseFloat(times2[i]))) ? 0 : parseFloat(times2[i])
+						}
+						 console.log(times1[2]);
+						
+						
+						var tiempo1=(times1[0]*3600)+(times1[1]*60)+times1[2];
+						console.log("tiempo1"+tiempo1);
+						var tiempo2=(times2[0]*3600)+(times2[1]*60)+times2[2];
+						console.log("tiempo2"+tiempo2);
+						var duration=tiempo1-tiempo2;
+						console.log("suma"+duration);
+						
+						//var milliseconds = parseInt((duration%1000)/100);
+                        //var seconds = parseInt((duration/1000)%60);
+						//var minutes = parseInt((duration/(1000*60))%60)
+						//var hours = parseInt((duration/(1000*60*60))%24);
+						
+						var h=parseInt(duration/3600);
+						var min =parseInt((duration-(3600*h))/60); 
+						var s= duration -((3600*h)+(min*60));
+						
+						var se=Math.round(s * 100) / 100
+						
+						var horas,minutos,segundos,milis;
+						if(h<10){
+							horas="0"+h;
+						}
+						else{
+							horas=h;
+						}
+						if(min<10){
+							minutos="0"+min;
+						}
+						else{
+							minutos=min;
+						}
+						if(se<10){
+							segundos="0"+se;
+						}
+						else{
+							segundos=se;
+						}
+						
+						
+						
+						
+						
+						
+						
 
-		  		  var seconds = Math.round(times[2]* 100) / 100;
-		  		  var minutes = times[1];
-		  		  var hours = times[0];
+						return horas+ ":" + minutos + ":" + segundos ;
+						
+					
 
-		  		  if (seconds % 60 === 0) {
-		  		    hours += seconds / 60;
-		  		  }
-
-		  		  if (minutes % 60 === 0) {
-		  		    res = minutes / 60;
-		  		    hours += res;
-		  		    minutes = minutes - (60 * res);
-		  		  }
-		  		 var horas;
-		  		var minutos;
-		  		  if(hours.toString().length==1){
-		  			  horas="0"+hours.toString();
-		  		  }
-		  		  else{
-		  			 var horas=hours.toString();
-		  		  }
-		  		if(minutes.toString().length==1){
-		  			 minutos="0"+minutes.toString();
-		  		  }
-		  		else{
-		  			minutos=minutes.toString();
-		  		}
 		  		  
-
-		  		  console.log(hours + ':' + minutes + ':' + seconds);
-		  		  return horas + ':' + minutos + ':' + seconds;
 		  		}
 
 		  		function velocidad(tiempo,dis){
@@ -318,9 +320,24 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 
 
 
+	
 
-		  		
+	
 
+
+
+					
+					
+
+
+				  	
+
+
+
+		
+
+			        
+			       
 
 
 				  	
@@ -328,7 +345,7 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 				  
 			  	
 			        
-			    }
+	
 		
 	
 	
@@ -337,6 +354,10 @@ app.controller("SampleCtrlcatcarrerad", function($scope, $firebaseArray) {
 	
 	
 	});
+
+
+
+
 
 
 

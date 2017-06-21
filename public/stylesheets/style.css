@@ -1551,7 +1551,7 @@ h5.tipografia1{
 
 
 h4.tipografia2{
-  font: normal 20px fuentem;  
+  font: normal 20px fuentem; 
 }
 
 option{
@@ -1577,4 +1577,8 @@ td{
 textarea::placeholder {
   font: normal 15px fuentem; 
   color: blue;
+}
+
+h4 a{
+   color: white;
 }

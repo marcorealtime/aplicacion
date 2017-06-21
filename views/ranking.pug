@@ -3,7 +3,7 @@ html(ng-app='sampleApp2')
 	head
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		title Circuito T.Real/Pilotos
+		title RALLY BOLIVIA
 		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
 		link(rel='stylesheet', href='/stylesheets/styles.min.css')
@@ -13,7 +13,7 @@ html(ng-app='sampleApp2')
 			.container
 				.navbar-header
 					a.navbar-brand.navbar-link(href='#')
-						h3.tipografia3 Circuito TUPIZA
+						h3.tipografia3 RALLY BOLIVIA
 					button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
 						span.sr-only Toggle navigation
 						span.icon-bar
@@ -35,9 +35,13 @@ html(ng-app='sampleApp2')
 								span.caret
 							ul.dropdown-menu
 								li(role='presentation')
-									a(href='/clasificacion') CLASIFICACIÓN
+									a(href='/inscritos') INSCRITOS
 								li(role='presentation')
-									a(href='/carrera') CARRERA
+									a(href='/orden') ORDEN DE LARGADA
+								li(role='presentation')
+									a(href='/clasificacion') ETAPAS/PRUEBAS ESPECIALES
+								li(role='presentation')
+									a(href='/carrera') TIEMPOS GENERAL
 						li(role='presentation')
 							a(href='/galeria') GALERIA
 						li(role='presentation')
@@ -72,7 +76,7 @@ html(ng-app='sampleApp2')
 			.container
 				.row
 					.col-sm-6
-						h6.tipografia4 @CIRCUITO BOLIVIA 2017 TODOS LOS DERECHOS RESERVADOS
+						h6.tipografia4 @RALLY BOLIVIA 2017 TODOS LOS DERECHOS RESERVADOS
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
@@ -80,13 +84,13 @@ html(ng-app='sampleApp2')
 		script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
 		script.
 			// Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyBwVjIYEN2QjmJ5kqXvnazaOSLKrzauZC0",
-				authDomain: "febad-42b3a.firebaseapp.com",
-				databaseURL: "https://febad-42b3a.firebaseio.com",
-				projectId: "febad-42b3a",
-				storageBucket: "febad-42b3a.appspot.com",
-				messagingSenderId: "431035690337"
-			};
-			firebase.initializeApp(config);
+				var config = {
+					apiKey: "AIzaSyApCiSg8NDNbLpq6AF5MktamVSdqO0dBvk",
+					authDomain: "aadeta2017.firebaseapp.com",
+					databaseURL: "https://aadeta2017.firebaseio.com",
+					projectId: "aadeta2017",
+					storageBucket: "aadeta2017.appspot.com",
+					messagingSenderId: "224653888690"
+					};
+					firebase.initializeApp(config);
 		script(src='/javascripts/codigoranking.js')

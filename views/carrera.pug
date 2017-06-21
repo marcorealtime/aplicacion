@@ -1,9 +1,9 @@
 doctype html
-html(ng-app='sampleAppcarrera')
+html(ng-app='sampleApp3')
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title Circuito T.Real/Pilotos
+        title RALLY BOLIVIA
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
         link(rel='stylesheet', href='/stylesheets/styles.min.css')
@@ -13,7 +13,7 @@ html(ng-app='sampleAppcarrera')
             .container
                 .navbar-header
                     a.navbar-brand.navbar-link(href='#')
-                        h3.tipografia3 Circuito TUPIZA
+                        h3.tipografia3 RALLY BOLIVIA
                     button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
                         span.sr-only Toggle navigation
                         span.icon-bar
@@ -34,24 +34,25 @@ html(ng-app='sampleAppcarrera')
                                 | DIRECTO
                                 span.caret
                             ul.dropdown-menu
-                                li.active(role='presentation')
-                                    a(href='/clasificacion') CLASIFICACIÓN
                                 li(role='presentation')
-                                    a(href='/carrera') CARRERA
+                                    a(href='/inscritos') INSCRITOS
+                                li(role='presentation')
+                                    a(href='/orden') ORDEN DE LARGADA
+                                li(role='presentation')
+                                    a(href='/clasificacion') ETAPAS/PRUEBAS ESPECIALES
+                                li(role='presentation')
+                                    a(href='/carrera') TIEMPOS GENERAL
                         li(role='presentation')
                             a(href='/galeria') GALERIA
                         li(role='presentation')
                             a(href='/media') MEDIA
         .container
-            .row(ng-controller='SampleCtrlcatcarrera')
+            .row(ng-controller='SampleCtrlcat3')
                 .col-md-4.col-md-push-7.phone-preview
                     .iphone-mockup
                 .col-md-6.col-md-pull-3.get-it
-                    h4.tipografia2 TIEMPOS DE CARRERA: {{carreradirecto}}
-                    h4.tipografia2 Clase
-                    select(name='singleSelect', ng-model='data.singleSelect', ng-change='LoadSessionData(data.singleSelect)', style='width:100%')
-                        option(value='', disabled='', selected='', class='timpografia2') Seleccionar Clase
-                        option(ng-repeat='x1 in categoria') {{x1.nombre}}
+                    h4.tipografia2 TIEMPOS GENERALES : {{carreradirecto}}
+                    hr
                     hr
                     .panel.panel-default(ng-repeat='x1 in unitscorriendo')
                         .panel-heading(style="background-color: #{{x1.color}};")
@@ -59,7 +60,7 @@ html(ng-app='sampleAppcarrera')
                                 center
                                     h5.tipografia1 {{x1.estado}}
                                 h5.tipografia1 {{unitscorriendo.indexOf(x1)+1}}
-                                    p.pull-right {{clase}}
+                                    p.pull-right {{x1.clase}}
                                 h5.tipografia1 
                                     span.icon-key2
                                     | {{x1.auto}} 
@@ -77,24 +78,22 @@ html(ng-app='sampleAppcarrera')
                                     p.pull-right +{{x1.tiempoa}}
                                 br
                                 #reloj3
-                                    p.text-primary Rep:{{x1.repe}}
                                     p.text-warning Pena :{{x1.pena}}
                         .panel-body
-                            a.btn.btn-primary.btn-xs(href='#cor{{unitscorriendo.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO/VUELTAS
+                            a.btn.btn-primary.btn-xs(href='#cor{{unitscorriendo.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
                             .collapse(id='cor{{unitscorriendo.indexOf(x1)+1}}')
                                 br
                                 #reloj3
                                     p Velocidad:  {{x1.km}} km/h       
                                     p Dif. C/u:  {{x1.tiempoa}}
                                     p Dif 1° C/u:  {{x1.tiempop}}
-                                    textarea.textAreaMultiligne(placeholder='{{x1.vueltas}}', rows='5', cols='35')
                     .panel.panel-default(ng-repeat='x1 in units')
                         .panel-heading(style="background-color: #{{x1.color}};")
                             h3.panel-title
                                 center
                                     h5.tipografia1 {{x1.estado}}
                                 h5.tipografia1 {{units.indexOf(x1)+1}}
-                                    p.pull-right {{clase}}
+                                    p.pull-right {{x1.clase}}
                                 h5.tipografia1 
                                     span.icon-key2
                                     | {{x1.auto}} 
@@ -112,7 +111,6 @@ html(ng-app='sampleAppcarrera')
                                     p.pull-right +{{x1.tiempoa}}
                                 br
                                 #reloj3
-                                    p.text-primary Rep:{{x1.repe}}
                                     p.text-warning Pena :{{x1.pena}}
                         .panel-body
                             a.btn.btn-primary.btn-xs(href='#cla{{units.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO/VUELTAS
@@ -122,14 +120,13 @@ html(ng-app='sampleAppcarrera')
                                     p Velocidad:  {{x1.km}} km/h       
                                     p Dif. C/u:  {{x1.tiempoa}}
                                     p Dif 1° C/u:  {{x1.tiempop}}
-                                    textarea.textAreaMultiligne(placeholder='{{x1.vueltas}}', rows='5', cols='35')
                     .panel.panel-default(ng-repeat='x1 in unitsabandono')
                         .panel-heading(style="background-color: #{{x1.color}};")
                             h3.panel-title
                                 center
                                     h5.tipografia1 {{x1.estado}}
                                 h5.tipografia1 {{unitsabandono.indexOf(x1)+1}}
-                                    p.pull-right {{clase}}
+                                    p.pull-right {{x1.clase}}
                                 h5.tipografia1 
                                     span.icon-key2
                                     | {{x1.auto}} 
@@ -147,24 +144,22 @@ html(ng-app='sampleAppcarrera')
                                     p.pull-right +{{x1.tiempoa}}
                                 br
                                 #reloj3
-                                    p.text-primary Rep:{{x1.repe}}
                                     p.text-warning Pena :{{x1.pena}}
                         .panel-body
-                            a.btn.btn-primary.btn-xs(href='#aba{{unitsabandono.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO/VUELTAS
+                            a.btn.btn-primary.btn-xs(href='#aba{{unitsabandono.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
                             .collapse(id='aba{{unitsabandono.indexOf(x1)+1}}')
                                 br
                                 #reloj3
                                     p Velocidad:  {{x1.km}} km/h       
                                     p Dif. C/u:  {{x1.tiempoa}}
                                     p Dif 1° C/u:  {{x1.tiempop}}
-                                    textarea.textAreaMultiligne(placeholder='{{x1.vueltas}}', rows='6', cols='35')
                     .panel.panel-default(ng-repeat='x1 in descalificado')
                         .panel-heading(style="background-color: #{{x1.color}};")
                             h3.panel-title
                                 center
                                     h5.tipografia1 {{x1.estado}}
                                 h5.tipografia1 {{descalificado.indexOf(x1)+1}}
-                                    p.pull-right {{clase}}
+                                    p.pull-right {{x1.clase}}
                                 h5.tipografia1 
                                     span.icon-key2
                                     | {{x1.auto}} 
@@ -182,17 +177,16 @@ html(ng-app='sampleAppcarrera')
                                     p.pull-right +{{x1.tiempoa}}
                                 br
                                 #reloj3
-                                    p.text-primary Rep:{{x1.repe}}
                                     p.text-warning Pena :{{x1.pena}}
                         .panel-body
-                            a.btn.btn-primary.btn-xs(href='#des{{descalificado.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO/VUELTAS
+                            a.btn.btn-primary.btn-xs(href='#des{{descalificado.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
                             .collapse(id='des{{descalificado.indexOf(x1)+1}}')
                                 br
                                 #reloj3
                                     p Velocidad:  {{x1.km}} km/h       
                                     p Dif. C/u:  {{x1.tiempoa}}
                                     p Dif 1° C/u:  {{x1.tiempop}}
-                                    textarea.textAreaMultiligne(placeholder='{{x1.vueltas}}', rows='6', cols='35')       
+                                
 
                     
                             
@@ -202,7 +196,7 @@ html(ng-app='sampleAppcarrera')
             .container
                 .row
                     .col-sm-6
-                        h6.tipografia4 @CIRCUITO TUPIZA 2017 TODOS LOS DERECHOS RESERVADOS
+                        h6.tipografia4 @CIRCUITO BOLIVIA 2017 TODOS LOS DERECHOS RESERVADOS
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
@@ -210,19 +204,13 @@ html(ng-app='sampleAppcarrera')
         script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
         script.
             // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyBwVjIYEN2QjmJ5kqXvnazaOSLKrzauZC0",
-                authDomain: "febad-42b3a.firebaseapp.com",
-                databaseURL: "https://febad-42b3a.firebaseio.com",
-                projectId: "febad-42b3a",
-                storageBucket: "febad-42b3a.appspot.com",
-                messagingSenderId: "431035690337"
-            };
-            firebase.initializeApp(config);
-
-            var textAreas = document.getElementsByTagName('textarea');
-
-            Array.prototype.forEach.call(textAreas, function(elem) {
-             elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
-            });
+                var config = {
+                    apiKey: "AIzaSyApCiSg8NDNbLpq6AF5MktamVSdqO0dBvk",
+                    authDomain: "aadeta2017.firebaseapp.com",
+                    databaseURL: "https://aadeta2017.firebaseio.com",
+                    projectId: "aadeta2017",
+                    storageBucket: "aadeta2017.appspot.com",
+                    messagingSenderId: "224653888690"
+                    };
+                    firebase.initializeApp(config);
         script(src='/javascripts/codigocarrera.js')

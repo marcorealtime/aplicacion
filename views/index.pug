@@ -3,7 +3,7 @@ html(ng-app='sampleAppindex')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title realtime
+    title Rally Bolivia
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
     link(rel='stylesheet', href='/stylesheets/styles.min.css')
@@ -13,7 +13,7 @@ html(ng-app='sampleAppindex')
       .container
         .navbar-header
           a.navbar-brand.navbar-link(href='#')
-            h3.tipografia3 Circuito TUPIZA
+            h3.tipografia3 RALLY BOLIVIA
           button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
             span.sr-only Toggle navigation
             span.icon-bar
@@ -35,9 +35,13 @@ html(ng-app='sampleAppindex')
                 span.caret
               ul.dropdown-menu
                 li(role='presentation')
-                  a(href='/clasificacion') CLASIFICACIÓN
+                  a(href='/inscritos') INSCRITOS
                 li(role='presentation')
-                  a(href='/carrera') CARRERA
+                  a(href='/orden') ORDEN DE LARGADA
+                li(role='presentation')
+                  a(href='/clasificacion') ETAPAS/PRUEBAS ESPECIALES
+                li(role='presentation')
+                  a(href='/carrera') TIEMPOS GENERAL
             li(role='presentation')
               a(href='/galeria') GALERIA
             li(role='presentation')
@@ -48,53 +52,54 @@ html(ng-app='sampleAppindex')
           .col-md-4.col-md-push-7.phone-preview
             .iphone-mockup
           .col-md-6.col-md-pull-3.get-it
-            h1 CIRCUITO
-            h1 TUPIZA
-            p SIGUE LA CARRERAS DE CIRCUITO EN TIEMPO REAL-
-            p
+            h1 RALLY BOLIVIA
+            h1 SAN XAVIER
+            p SIGUE LA CARRERAS DE RALLY EN TIEMPO REAL-
+            p 23 al 25 de Junio 2017
     section.testimonials
       h2.text-center BIENVENIDO
-      blockquote
-        footer TUPIZA-BOLIVIA
+      blockquote(ng-controller='SampleCtrlcatindex')
+        footer SANTA CRUAZ DE LA SIERRA-BOLIVIA
+        h4.tipografia2 EN VIVO CARRERA : {{carreradirecto}}
     section.features
       .container
-        .row(ng-controller='SampleCtrlcatindex')
+        .row
           .col-md-6
-            h4.tipografia2 EN VIVO CARRERA : {{carreradirecto}}
             h4.tipografia2
-              a.pull-right(href="/clasificacion/{{carreradirecto}}")  VER CLASIFICACIÓN
+              a(href="/inscritos/{{carreradirecto}}")  INSCRITOS
             br
             br
             h4.tipografia2
-              a.pull-right(href="/carrera/{{carreradirecto}}")  VER CARRERA
+              a(href="/orden/{{carreradirecto}}")  ORDEN DE LARGADA
             br
             br
-          .col-md-6
-            .row.icon-features
-              .col-xs-4.icon-feature
-                
-              .col-xs-4.icon-feature
-                
-              .col-xs-4.icon-feature
+            h4.tipografia2
+              a(href="/clasificacion/{{carreradirecto}}")  VER ETAPAS/PRUEBAS ESPECIALES
+            br
+            br
+            h4.tipografia2
+              a(href="/carrera/{{carreradirecto}}")  CLASIFICACIÓN GENERAL
+            br
+            br
     footer.site-footer
       .container
         .row
           .col-sm-6
-            h6.tipografia4 @CIRCUITO BOLIVIA 2017 TODOS LOS DERECHOS RESERVADOS
+            h6.tipografia4 @RALLY BOLIVIA 2017 TODOS LOS DERECHOS RESERVADOS
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
     script(src='https://www.gstatic.com/firebasejs/3.8.0/firebase.js')
     script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
     script.
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyBwVjIYEN2QjmJ5kqXvnazaOSLKrzauZC0",
-                authDomain: "febad-42b3a.firebaseapp.com",
-                databaseURL: "https://febad-42b3a.firebaseio.com",
-                projectId: "febad-42b3a",
-                storageBucket: "febad-42b3a.appspot.com",
-                messagingSenderId: "431035690337"
-            };
-            firebase.initializeApp(config);
+      // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyApCiSg8NDNbLpq6AF5MktamVSdqO0dBvk",
+          authDomain: "aadeta2017.firebaseapp.com",
+          databaseURL: "https://aadeta2017.firebaseio.com",
+          projectId: "aadeta2017",
+          storageBucket: "aadeta2017.appspot.com",
+          messagingSenderId: "224653888690"
+          };
+          firebase.initializeApp(config);
     script(src='/javascripts/codigoindex.js')

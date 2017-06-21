@@ -12,6 +12,8 @@ var ranking = require('./routes/ranking');
 var calendario = require('./routes/calendario');
 var clasificacion = require('./routes/clasificacion');
 var carrera = require('./routes/carrera');
+var inscritos = require('./routes/inscritos');
+var orden = require('./routes/orden');
 var app = express();
 
 // view engine setup
@@ -33,6 +35,8 @@ app.use('/ranking', ranking);
 app.use('/calendario', calendario);
 app.use('/clasificacion', clasificacion);
 app.use('/carrera', carrera);
+app.use('/inscritos', inscritos);
+app.use('/orden', orden);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
