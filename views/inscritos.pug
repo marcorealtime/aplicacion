@@ -43,9 +43,9 @@ html(ng-app='sampleApp6')
 								li(role='presentation')
 									a(href='/carrera') TIEMPOS GENERAL
 						li(role='presentation')
-							a(href='/galeria') GALERIA
+							a(href='#') GALERIA
 						li(role='presentation')
-							a(href='/media') MEDIA
+							a(href='#') MEDIA
 		.container
 			.row(ng-controller='SampleCtrlcat6')
 				.col-md-4.col-md-push-7.phone-preview
@@ -58,14 +58,23 @@ html(ng-app='sampleApp6')
 						option(ng-repeat='x1 in categoria') {{x1.nombre}}
 					br
 					br
-					.panel.panel-default(ng-repeat='x1 in pilotos')
+					.panel.panel-default(ng-repeat='x1 in units')
 						.panel-heading
 							h3.panel-title
-								p {{pilotos.indexOf(x1)+1}}
-								h5.tipografia1 {{x1.nombre}} 
-								#reloj3
-									h5 Largada: {{x1.largada}}
-									h5 Clase: {{x1.inspec}}					
+								p {{units.indexOf(x1)+1}}
+								h5.tipografia1 
+									span.icon-key2
+									| {{x1.auto}} 
+								h5.tipografia1
+									span.icon-user
+									| {{x1.nombre}}
+								h5.tipografia1
+									span.icon-user-plus
+									| {{x1.nave}}
+								h5.tipografia1
+									| Largada: {{x1.largada}}
+								h5.tipografia1
+									| Inspeción: {{x1.inspec}}					
  
 
 		section.testimonials
