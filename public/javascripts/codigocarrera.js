@@ -55,7 +55,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop:"-----",
  							   	estado:data.child("estado").val(),
  							   	color:'39ac39',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   	
 							};
   							//myElement.id =i;
@@ -77,7 +78,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.unitscorriendo[0].tiempo),
  							   	estado:data.child("estado").val(),
  							   	color:'39ac39',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   	
 								};
   							//myElement.id =i;
@@ -117,7 +119,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop:"-----",
  							   	estado:data.child("estado").val(),
  							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   	
 							};
   							//myElement.id =i;
@@ -139,7 +142,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.units[0].tiempo),
  							   	estado:data.child("estado").val(),
  							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   
 							};
   							//myElement.id =i;
@@ -169,7 +173,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'b9936c',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   	
 							};
   							//myElement.id =i;
@@ -200,7 +205,8 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'eca1a6',
- 							   	clase:data.child("clase").val()
+ 							   	clase:data.child("clase").val(),
+ 							   	pe:data.child("pe").val()
  							   	
 							};
   							//myElement.id =i;
