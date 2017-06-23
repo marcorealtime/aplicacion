@@ -1582,3 +1582,10 @@ textarea::placeholder {
 h4 a{
    color: white;
 }
+
+h5.tipografiain{
+  display:inline;
+  font: normal 17px fuentem; 
+  background : orange;
+
+}

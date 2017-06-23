@@ -23,11 +23,35 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 				  	ref.orderByChild("tiempo").on('value', function(snapshot) {
 				  		//console.log("numerod e hios"+snapshot.numChildren());
 
+				  		$scope.unitspe10 = [];
+				  		$scope.unitspe9 = [];
+				  		$scope.unitspe8 = [];
+				  		$scope.unitspe7 = [];
+				  		$scope.unitspe6 = [];
+				  		$scope.unitspe5 = [];
+				  		$scope.unitspe4 = [];
+				  		$scope.unitspe3 = [];
+				  		$scope.unitspe2 = [];
+				  		$scope.unitspe1 = [];
 
-				  		 $scope.units = [];
+				  		var i1=0;
+				  		var i2=0;
+				  		var i3=0;
+				  		var i4=0;
+				  		var i5=0;
+				  		var i6=0;
+				  		var i7=0;
+				  		var i8=0;
+				  		var i9=0;
+				  		var i10=0;
+
+
+
+
+
+				  		 
 				  		 $scope.unitsabandono = [];
 				  		 $scope.unitsdesca = [];
-				  		 $scope.unitscorriendo = [];
 				  		 $scope.descalificado = [];
 				  		 var i=0;
 				  		 var j=0;
@@ -37,124 +61,540 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
   						snapshot.forEach(function(data) {
 							//console.log(data.child("nombre").val());
 
-							//var dato=data.child("estado").val();
+							//prueba especial 10
+							if(data.child("pe").val()=='PE10'){
+								if(data.child("estado").val()=='FINALIZO'){
 
-							if(data.child("estado").val()=='FINALIZO'){
 
+									if(i10==0){
 
-								if(h==0){
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe10[i10] = myElement2;
+  											i10++;
 
-								 var myElement2 = {
-								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: "-----",
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:"-----",
- 							   	estado:data.child("estado").val(),
- 							   	color:'39ac39',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe10[i10-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe10[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
  							   	
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.unitscorriendo[h] = myElement2;
-  							h++;
+											};
+											$scope.unitspe10[i10] = myElement2;
+  											i10++;
+
+									}
+
+
+								}
 
 							}
-							else{
 
-								 var myElement2 = {
-  								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.unitscorriendo[h-1].tiempo),
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.unitscorriendo[0].tiempo),
- 							   	estado:data.child("estado").val(),
- 							   	color:'39ac39',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
+							//prueba especial 9
+							if(data.child("pe").val()=='PE9'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i9==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe9[i9] = myElement2;
+  											i9++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe9[i9-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe9[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
  							   	
-								};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.unitscorriendo[h] = myElement2;
-  							h++;
+											};
+											$scope.unitspe9[i9] = myElement2;
+  											i9++;
+
+									}
+
+
+								}
 
 							}
 
-
-							}
-
-
-
+							//prueba especial 8
+							if(data.child("pe").val()=='PE8'){
+								if(data.child("estado").val()=='FINALIZO'){
 
 
+									if(i8==0){
 
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe8[i8] = myElement2;
+  											i8++;
 
+									}
+									else{
 
-
-
-
-
-							if(data.child("estado").val()=='CARRERA'){
-
-
-								if(i==0){
-
-								 var myElement = {
-								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: "-----",
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:"-----",
- 							   	estado:data.child("estado").val(),
- 							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe8[i8-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe8[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
  							   	
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.units[i] = myElement;
-  							i++;
+											};
+											$scope.unitspe8[i8] = myElement2;
+  											i8++;
 
-							}
-							else{
+									}
 
-								 var myElement = {
-  								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.units[i-1].tiempo),
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.units[0].tiempo),
- 							   	estado:data.child("estado").val(),
- 							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
- 							   
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.units[i] = myElement;
-  							i++;
+
+								}
 
 							}
 
+							//prueba especial 7
+							if(data.child("pe").val()=='PE7'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i7==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe7[i7] = myElement2;
+  											i7++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe7[i7-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe7[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe7[i7] = myElement2;
+  											i7++;
+
+									}
+
+
+								}
 
 							}
+
+							//prueba especial 6
+							if(data.child("pe").val()=='PE6'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i6==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe6[i6] = myElement2;
+  											i6++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe6[i6-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe6[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe6[i6] = myElement2;
+  											i6++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial 5
+							if(data.child("pe").val()=='PE5'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i5==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe5[i5] = myElement2;
+  											i5++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe5[i5-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe5[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe5[i5] = myElement2;
+  											i5++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial 4
+							if(data.child("pe").val()=='PE4'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i4==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe4[i4] = myElement2;
+  											i4++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe4[i4-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe4[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe4[i4] = myElement2;
+  											i4++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial 3
+							if(data.child("pe").val()=='PE3'){
+								console.log("dentro pe3");
+								if(data.child("estado").val()=='FINALIZO'){
+									console.log("dentro pe3 finalizado");
+
+									if(i3==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe3[i3] = myElement2;
+  											i3++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe3[i3-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe3[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe3[i3] = myElement2;
+  											i3++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial 2
+							if(data.child("pe").val()=='PE2'){
+								//console.log("dentro pe2");
+								if(data.child("estado").val()=='FINALIZO'){
+									//console.log("dentro pe2 FINALIZO");
+
+									if(i2==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe2[i2] = myElement2;
+  											i2++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe2[i2-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe2[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe2[i2] = myElement2;
+  											i2++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial 1
+							if(data.child("pe").val()=='PE1'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i1==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe1[i1] = myElement2;
+  											i1++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe1[i1-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe1[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe1[i1] = myElement2;
+  											i1++;
+
+									}
+
+
+								}
+
+							}
+
+
+							
 
 
 							if(data.child("estado").val()=='ABANDONO'){
