@@ -36,8 +36,8 @@ app.controller("SampleCtrlcat6", function($scope, $firebaseArray) {
 								auto: nombretop( data.child("nombre").val(),0),
   								nombre: nombretop( data.child("nombre").val(),1),
   								nave: nombretop( data.child("nombre").val(),2),
-  								largada:data.child("largada").val(),
-  								clase:data.child("clase").val()
+  								adm:data.child("largada").val(),
+  								revi:data.child("inspec").val()
  							   	
 							};
   							//myElement.id =i;
