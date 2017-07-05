@@ -48,9 +48,14 @@ html(ng-app='sampleApp2')
 							a(href='#') MEDIA
 		.container
 			.row(ng-controller='SampleCtrlcat2')
+				div(my-customer='')
+				br
+				br
+				br
 				.col-md-4.col-md-push-7.phone-preview
 					.iphone-mockup
 				.col-md-6.col-md-pull-3.get-it
+					br
 					h4.tipografia2 PRUEBAS ESPECIALES : {{carreradirecto}}
 					h4.tipografia2 ETAPA:
 					select(name='singleSelect', ng-model='data.singleSelect', ng-change='LoadSessionData(data.singleSelect)', style='width:100%')

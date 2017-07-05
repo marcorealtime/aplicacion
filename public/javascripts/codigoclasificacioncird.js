@@ -1,25 +1,19 @@
-var app = angular.module("sampleApp2", ["firebase"]);
+var app = angular.module("sampleAppCird", ["firebase"]);
 
-app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
+app.controller("SampleCtrlCird", function($scope, $firebaseArray) {
 	
 	
-	var ref1 = firebase.database().ref().child("carrera");
-	$scope.carrera = $firebaseArray(ref1);
+	
 
-	var etapa;
+	var clase;
 	var pe;
 
-	$scope.carrera.$loaded().then(function () {
-  	//console.log($scope.carrera[0].carrera);
-  	//console.log($scope.carrera[0].tipo);
-  	$scope.carreradirecto=$scope.carrera[0].carrera;
-  	$scope.tipodirecto=$scope.carrera[0].tipo;
 
 
-	var ref = firebase.database().ref().child($scope.carreradirecto+"/Etapas");
+	var ref = firebase.database().ref().child("categoria");
 	$scope.etapas = $firebaseArray(ref);
 
-	});
+	
 
 	
 
@@ -29,41 +23,31 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 			
 			
 					
-			        
-			       	etapa=val;
+			        console.log(val);
+			       	clase=val;
 			        $scope.clasem=val;
 
 
- 						var reff = firebase.database().ref().child($scope.carreradirecto+"/"+etapa+"/especiales/").orderByChild("orden");
-				  		$scope.especiales = $firebaseArray(reff);
-
-
-		 $scope.LoadSessionPespecial=function(val) {
-
 					pe=val;
-					var ref = firebase.database().ref().child($scope.carreradirecto+"/"+etapa+"/"+pe+"/Tiempos/");
+					var ref = firebase.database().ref().child(workflowData+"/Clasificacion/"+clase);
 				  	$scope.pilotos = $firebaseArray(ref);
 				  	console.log($scope.pilotos);
 				  	ref.orderByChild("tiempo").on('value', function(snapshot) {
 				  		//console.log("numerod e hios"+snapshot.numChildren());
 
 
-				  		 $scope.units = [];
-				  		 $scope.unitsabandono = [];
-				  		 $scope.unitsdesca = [];
+				  		 
 				  		 $scope.unitscorriendo = [];
-				  		 $scope.descalificado = [];
-				  		 var i=0;
-				  		 var j=0;
-				  		 var k=0;
+				  		
+				  		 
 				  		 var h=0;
-				  		 var m=0;
+				  		
   						snapshot.forEach(function(data) {
 							//console.log(data.child("nombre").val());
 
 							//var dato=data.child("estado").val();
 
-							if(data.child("estado").val()=='FINALIZO'){
+							
 
 
 								if(h==0){
@@ -75,11 +59,11 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: "-----",
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   	tiempop:"-----",
- 							   	estado:data.child("estado").val(),
  							   	color:'39ac39',
- 							   	clase:data.child("clase").val()
+ 							   	clase:clase,
+ 							   	repe:data.child("repechaje").val()
  							   	
 							};
   							//myElement.id =i;
@@ -97,11 +81,11 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
  							   	tiempo: data.child("tiempo").val(),
  							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.unitscorriendo[h-1].tiempo),
  							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   	km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.unitscorriendo[0].tiempo),
- 							   	estado:data.child("estado").val(),
  							   	color:'39ac39',
- 							   	clase:data.child("clase").val()
+ 							   	clase:clase,
+ 							   	repe:data.child("repechaje").val()
  							   	
 								};
   							//myElement.id =i;
@@ -112,7 +96,7 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 							}
 
 
-							}
+							
 
 
 
@@ -124,118 +108,15 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 
 
 
-
-							if(data.child("estado").val()=='CARRERA'){
-
-
-								if(i==0){
-
-								 var myElement = {
-								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: "-----",
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:"-----",
- 							   	estado:data.child("estado").val(),
- 							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val()
- 							   	
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.units[i] = myElement;
-  							i++;
-
-							}
-							else{
-
-								 var myElement = {
-  								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: restTimes(data.child("tiempo").val(), $scope.units[i-1].tiempo),
- 							   	pena: data.child("pena").val(),
- 							   	km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
- 							   	tiempop:  restTimes(data.child("tiempo").val(), $scope.units[0].tiempo),
- 							   	estado:data.child("estado").val(),
- 							   	color:'b5e7a0',
- 							   	clase:data.child("clase").val()
- 							   
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.units[i] = myElement;
-  							i++;
-
-							}
-
-
-							}
-
-
-							if(data.child("estado").val()=='ABANDONO'){
-
-
-								
-
-								 var myElement = {
-  								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: "-------",
- 							   	pena: data.child("pena").val(),
- 							   	km: "------",
- 							   	tiempop: "------",
- 							   	estado:data.child("estado").val(),
- 							   	color:'b9936c',
- 							   	clase:data.child("clase").val()
- 							   	
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.unitsabandono[j] = myElement;
-  							j++;
 
 							
 
 
-							}
-
-
-
-							if(data.child("estado").val()=='DESCALIFICADO'){
-
-
-								
-
-								 var myElement4 = {
-  								auto: nombretop( data.child("nombre").val(),0),
-  								nombre: nombretop( data.child("nombre").val(),1),
-  								nave: nombretop( data.child("nombre").val(),2),
- 							   	tiempo: data.child("tiempo").val(),
- 							   	tiempoa: "-------",
- 							   	pena: data.child("pena").val(),
- 							   	km: "---------",
- 							   	tiempop: "------",
- 							   	estado:data.child("estado").val(),
- 							   	color:'eca1a6',
- 							   	clase:data.child("clase").val()
- 							   	
-							};
-  							//myElement.id =i;
-							//myElement.value=data.child("nombre").val();
-							$scope.descalificado[m] = myElement4;
-  							m++;
-
 							
 
 
-							}
+
+							
 
 
 
@@ -357,7 +238,7 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 
 
 
-		}
+		
 
 			        
 			       
@@ -378,9 +259,5 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 	
 	});
 
-app.directive('myCustomer', function() {
-  return {
-    templateUrl: '/baner.html'
-  };
-});
+
 

@@ -1,23 +1,30 @@
-var app = angular.module("sampleApp3", ["firebase"]);
+var app = angular.module("sampleAppCARRD", ["firebase"]);
 
-app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
+app.controller("SampleCtrlCARRD", function($scope, $firebaseArray) {
 	
-	
-	var ref1 = firebase.database().ref().child("carrera");
-	$scope.carrera = $firebaseArray(ref1);
-
 	
 	
 
-	$scope.carrera.$loaded().then(function () {
-  	//console.log($scope.carrera[0].carrera);
-  	//console.log($scope.carrera[0].tipo);
-  	$scope.carreradirecto=$scope.carrera[0].carrera;
-  	$scope.tipodirecto=$scope.carrera[0].tipo;
+	var clase;
+	
+
+
+  	var ref = firebase.database().ref().child("categoria");
+	$scope.etapas = $firebaseArray(ref);
+
+	
+
+	$scope.LoadSessionData = function(val) {
+			
+			
+					
+			        console.log(val);
+			       	clase=val;
+			        $scope.clasem=val;
 
 
 
-				var ref = firebase.database().ref().child($scope.carreradirecto+"/General/");
+				var ref = firebase.database().ref().child(workflowData+"/Carrera/"+clase);
 				  	$scope.pilotos = $firebaseArray(ref);
 				  	console.log($scope.pilotos);
 				  	ref.orderByChild("tiempo").on('value', function(snapshot) {
@@ -62,7 +69,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							//console.log(data.child("nombre").val());
 
 							//prueba especial 10
-							if(data.child("pe").val()=='PE10'){
+							if(data.child("pe").val()=='Vuelta 10'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -75,12 +82,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase: clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe10[i10] = myElement2;
@@ -96,12 +104,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe10[i10-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe10[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe10[i10] = myElement2;
@@ -115,7 +124,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 9
-							if(data.child("pe").val()=='PE9'){
+							if(data.child("pe").val()=='Vuelta 9'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -128,12 +137,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase: clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe9[i9] = myElement2;
@@ -149,12 +159,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe9[i9-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe9[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe9[i9] = myElement2;
@@ -168,7 +179,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 8
-							if(data.child("pe").val()=='PE8'){
+							if(data.child("pe").val()=='Vuelta 8'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -181,12 +192,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe8[i8] = myElement2;
@@ -202,12 +214,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe8[i8-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe8[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe8[i8] = myElement2;
@@ -221,7 +234,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 7
-							if(data.child("pe").val()=='PE7'){
+							if(data.child("pe").val()=='Vuelta 7'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -234,12 +247,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe7[i7] = myElement2;
@@ -255,12 +269,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe7[i7-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe7[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe7[i7] = myElement2;
@@ -274,7 +289,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 6
-							if(data.child("pe").val()=='PE6'){
+							if(data.child("pe").val()=='Vuelta 6'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -287,12 +302,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase: clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe6[i6] = myElement2;
@@ -308,12 +324,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe6[i6-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe6[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe6[i6] = myElement2;
@@ -327,7 +344,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 5
-							if(data.child("pe").val()=='PE5'){
+							if(data.child("pe").val()=='Vuelta 5'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -340,12 +357,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase: clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe5[i5] = myElement2;
@@ -361,12 +379,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe5[i5-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe5[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe5[i5] = myElement2;
@@ -380,7 +399,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 4
-							if(data.child("pe").val()=='PE4'){
+							if(data.child("pe").val()=='Vuelta 4'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -393,12 +412,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe4[i4] = myElement2;
@@ -414,12 +434,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe4[i4-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe4[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe4[i4] = myElement2;
@@ -433,7 +454,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 3
-							if(data.child("pe").val()=='PE3'){
+							if(data.child("pe").val()=='Vuelta 3'){
 								console.log("dentro pe3");
 								if(data.child("estado").val()=='FINALIZO'){
 									console.log("dentro pe3 finalizado");
@@ -447,12 +468,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe3[i3] = myElement2;
@@ -468,12 +490,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe3[i3-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe3[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe3[i3] = myElement2;
@@ -487,7 +510,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 2
-							if(data.child("pe").val()=='PE2'){
+							if(data.child("pe").val()=='Vuelta 2'){
 								//console.log("dentro pe2");
 								if(data.child("estado").val()=='FINALIZO'){
 									//console.log("dentro pe2 FINALIZO");
@@ -501,12 +524,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe2[i2] = myElement2;
@@ -522,12 +546,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe2[i2-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe2[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe2[i2] = myElement2;
@@ -541,7 +566,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 							}
 
 							//prueba especial 1
-							if(data.child("pe").val()=='PE1'){
+							if(data.child("pe").val()=='Vuelta 1'){
 								if(data.child("estado").val()=='FINALIZO'){
 
 
@@ -554,12 +579,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: "-----",
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:"-----",
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
 											};
   							
 											$scope.unitspe1[i1] = myElement2;
@@ -575,12 +601,13 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   				tiempo: data.child("tiempo").val(),
  							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe1[i1-1].tiempo),
  							   				pena: data.child("pena").val(),
- 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("tam").val()),
  							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe1[0].tiempo),
  							   				estado:data.child("estado").val(),
  							   				color:'39ac39',
- 							   				clase:data.child("clase").val(),
- 							   				pe:data.child("pe").val()
+ 							   				clase:clase,
+ 							   				pe:data.child("pe").val(),
+ 							   				vuelta: data.child("vuelta").val()
  							   	
 											};
 											$scope.unitspe1[i1] = myElement2;
@@ -613,8 +640,9 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'b9936c',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
+ 							   	clase:clase,
+ 							   	pe:data.child("pe").val(),
+ 							   	vuelta: data.child("vuelta").val()
  							   	
 							};
   							//myElement.id =i;
@@ -645,8 +673,9 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
  							   	tiempop: "------",
  							   	estado:data.child("estado").val(),
  							   	color:'eca1a6',
- 							   	clase:data.child("clase").val(),
- 							   	pe:data.child("pe").val()
+ 							   	clase:clase,
+ 							   	pe:data.child("pe").val(),
+ 							   	vuelta: data.child("vuelta").val()
  							   	
 							};
   							//myElement.id =i;
@@ -778,7 +807,7 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 
 	
 
-	});
+	};
 
 
 
@@ -811,9 +840,5 @@ app.controller("SampleCtrlcat3", function($scope, $firebaseArray) {
 	
 	});
 
-app.directive('myCustomer', function() {
-  return {
-    templateUrl: '/baner.html'
-  };
-});
+
 

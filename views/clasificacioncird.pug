@@ -1,5 +1,5 @@
 doctype html
-html(ng-app='sampleApp2')
+html(ng-app='sampleAppCird')
 	head
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -27,9 +27,9 @@ html(ng-app='sampleApp2')
 							a(href='/piloto') PILOTOS
 						li(role='presentation')
 							a(href='/ranking') RANKING
-						li.active(role='presentation')
-							a(href='/calendario') CALENDARIO
 						li(role='presentation')
+							a(href='/calendario') CALENDARIO
+						li.active(role='presentation')
 							a.dropdown-toggle(data-toggle='dropdown', href='#')
 								| DIRECTO
 								span.caret
@@ -47,45 +47,49 @@ html(ng-app='sampleApp2')
 						li(role='presentation')
 							a(href='#') MEDIA
 		.container
-			.row(ng-controller='SampleCtrlcat2')
-					.col-md-4.col-md-push-7.phone-preview
-						.iphone-mockup
-					.col-md-6.col-md-pull-3.get-it
-						h4.tipografia2 CALENDARIO
-						br
-						.panel.panel-default(ng-repeat='x1 in calendario')
-							.panel-heading
-								h3.panel-title
-									h5.tipografia1 {{x1.nombre}} 
-									img.img-responsive.center-block(id='imagen{{x1.foto}}', ng-src='{{getImageUrl(x1.foto)}}')
-							.panel-body
-								a.btn.btn-warning(href='#cale{{x1.lugar}}', data-toggle='collapse' style='width:100%') INFO
-								.collapse(id='cale{{x1.lugar}}')
-									br
-									#reloj3
-										p.text-primary Nombre:{{x1.orden}}
-										p.text-primary Estado:{{x1.estado}}  
-										p.text-primary Fecha:{{x1.fecha}} 
-										p.text-primary Tipo:{{x1.tipo}}
-										br
-										div(ng-show="appState == '{{x1.tipo}}'")
-											a.pull-right(href="/inscritos/{{x1.orden}}") VER INSCRITOS
-											br
-											a.pull-right(href="/orden/{{x1.orden}}") VER ORDEN DE LARGADA
-											br
-											a.pull-right(href="/clasificacion/{{x1.orden}}") VER ETAPAS/PRUEBAS ESPECIALES
-											br
-											a.pull-right(href="/carrera/{{x1.orden}}") VER CLASIFICACIÓN GENERAL
-
-										div(ng-show="appState2 == '{{x1.tipo}}'")
-											a.pull-right(href="/inscritos/{{x1.orden}}") VER INSCRITOS
-											br
-											a.pull-right(href="/clasificacioncir/{{x1.orden}}") VER CLASIFICACION
-											br
-											a.pull-right(href="/carreracir/{{x1.orden}}") VER CARRERA
-									
-															 
-
+			.row(ng-controller='SampleCtrlCird')
+				.col-md-4.col-md-push-7.phone-preview
+					.iphone-mockup
+				.col-md-6.col-md-pull-3.get-it
+					h4.tipografia2 CLASIFICACIÓN : #{carrera}
+					h4.tipografia2 CLASES:
+					select(name='singleSelect', ng-model='data.singleSelect', ng-change='LoadSessionData(data.singleSelect)', style='width:100%')
+						option(value='', disabled='', selected='', class='timpografia2') Seleccionar CLASE
+						option(ng-repeat='x1 in etapas') {{x1.nombre}}
+					hr
+					.panel.panel-default(ng-repeat='x1 in unitscorriendo')
+						.panel-heading(style="background-color: #{{x1.color}};")
+							h3.panel-title
+								h5.tipografia1 {{unitscorriendo.indexOf(x1)+1}}
+									p.pull-right {{x1.clase}}
+								h5.tipografia1 
+									span.icon-key2
+									| {{x1.auto}} 
+								h5.tipografia1
+									span.icon-user
+									| {{x1.nombre}}
+								h5.tipografia1
+									span.icon-user-plus
+									| {{x1.nave}}
+								center
+									h2  
+										#reloj
+											| {{x1.tiempo}}
+								#reloj2
+									p.pull-right +{{x1.tiempoa}}
+								br
+								h5.tipografia1 Pena :{{x1.pena}}
+								h5.tipografia1 REP: {{x1.repe}}
+						.panel-body
+							a.btn.btn-primary.btn-xs(href='#cor{{unitscorriendo.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
+							.collapse(id='cor{{unitscorriendo.indexOf(x1)+1}}')
+								br
+								#reloj3
+									p Velocidad:  {{x1.km}} km/h       
+									p Dif. C/u:  {{x1.tiempoa}}
+									p Dif 1° C/u:  {{x1.tiempop}}
+					
+		section.testimonials
 		footer.site-footer
 			.container
 				.row
@@ -98,7 +102,7 @@ html(ng-app='sampleApp2')
 		script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
 		script.
 			// Initialize Firebase
-			var config = {
+				var config = {
 				apiKey: "AIzaSyCAvJ-eDPeK0hvmWWbUJROwJHgZtKl2B6Y",
 				authDomain: "aadeta-7a01d.firebaseapp.com",
 				databaseURL: "https://aadeta-7a01d.firebaseio.com",
@@ -107,4 +111,5 @@ html(ng-app='sampleApp2')
 				messagingSenderId: "25211110334"
 			  };
 			firebase.initializeApp(config);
-		script(src='/javascripts/codigocalendario.js')
+			var workflowData = '#{carrera}';
+		script(src='/javascripts/codigoclasificacioncird.js')
