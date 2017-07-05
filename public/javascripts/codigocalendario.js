@@ -2,6 +2,9 @@ var app = angular.module("sampleApp2", ["firebase"]);
 
 app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 	
+
+	$scope.appState="RALLY";
+	$scope.appState2="CIRCUITO";
 	 
 			        var ref = firebase.database().ref().child("calendario").orderByChild("lugar");
 				  	$scope.calendario = $firebaseArray(ref);

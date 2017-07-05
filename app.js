@@ -14,6 +14,8 @@ var clasificacion = require('./routes/clasificacion');
 var carrera = require('./routes/carrera');
 var inscritos = require('./routes/inscritos');
 var orden = require('./routes/orden');
+var clasificacioncir = require('./routes/clasificacioncir');
+var carreracir = require('./routes/carreracir');
 var app = express();
 
 // view engine setup
@@ -37,6 +39,8 @@ app.use('/clasificacion', clasificacion);
 app.use('/carrera', carrera);
 app.use('/inscritos', inscritos);
 app.use('/orden', orden);
+app.use('/clasificacioncir', clasificacioncir);
+app.use('/carreracir',carreracir);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
