@@ -23,13 +23,13 @@ html(ng-app='sampleApp7')
 					ul.nav.navbar-nav.navbar-right
 						li(role='presentation')
 							a(href='/') INICIO
-						li.active(role='presentation')
+						li(role='presentation')
 							a(href='/piloto') PILOTOS
 						li(role='presentation')
 							a(href='/ranking') RANKING
 						li(role='presentation')
 							a(href='/calendario') CALENDARIO
-						li(role='presentation')
+						li.active(role='presentation')
 							a.dropdown-toggle(data-toggle='dropdown', href='#')
 								| DIRECTO
 								span.caret
@@ -43,9 +43,18 @@ html(ng-app='sampleApp7')
 								li(role='presentation')
 									a(href='/carrera') CLASIFICACIÓN GENERAL
 						li(role='presentation')
-							a(href='#') GALERIA
+							a.dropdown-toggle(data-toggle='dropdown', href='#')
+								| MOTOS
+								span.caret
+							ul.dropdown-menu
+								li(role='presentation')
+									a(href='/inscritosmoto') INSCRITOS
+								li(role='presentation')
+									a(href='/clasificacionmoto') ETAPAS/PRUEBAS ESPECIALES
+								li(role='presentation')
+									a(href='/carreramoto') TIEMPOS GENERAL
 						li(role='presentation')
-							a(href='#') MEDIA
+							a(href='#') GALERIA
 		.container
 			.row(ng-controller='SampleCtrlcat7')
 				.col-md-4.col-md-push-7.phone-preview

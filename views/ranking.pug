@@ -43,9 +43,18 @@ html(ng-app='sampleApp2')
 								li(role='presentation')
 									a(href='/carrera') TIEMPOS GENERAL
 						li(role='presentation')
-							a(href='#') GALERIA
+							a.dropdown-toggle(data-toggle='dropdown', href='#')
+								| MOTOS
+								span.caret
+							ul.dropdown-menu
+								li(role='presentation')
+									a(href='/inscritosmoto') INSCRITOS
+								li(role='presentation')
+									a(href='/clasificacionmoto') ETAPAS/PRUEBAS ESPECIALES
+								li(role='presentation')
+									a(href='/carreramoto') TIEMPOS GENERAL
 						li(role='presentation')
-							a(href='#') MEDIA
+							a(href='#') GALERIA
 		.container
 			.row(ng-controller='SampleCtrlcat2')
 				.col-md-4.col-md-push-7.phone-preview

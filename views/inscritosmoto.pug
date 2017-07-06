@@ -1,9 +1,9 @@
 doctype html
-html(ng-app='sampleAppin')
+html(ng-app='sampleAppMotoi')
 	head
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		title GO-TARIJA
+		title GO-TARIJA (Motos)
 		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
 		link(rel='stylesheet', href='/stylesheets/styles.min.css')
@@ -29,7 +29,7 @@ html(ng-app='sampleAppin')
 							a(href='/ranking') RANKING
 						li(role='presentation')
 							a(href='/calendario') CALENDARIO
-						li.active(role='presentation')
+						li(role='presentation')
 							a.dropdown-toggle(data-toggle='dropdown', href='#')
 								| DIRECTO
 								span.caret
@@ -42,7 +42,7 @@ html(ng-app='sampleAppin')
 									a(href='/clasificacion') ETAPAS/PRUEBAS ESPECIALES
 								li(role='presentation')
 									a(href='/carrera') TIEMPOS GENERAL
-						li(role='presentation')
+						li.active(role='presentation')
 							a.dropdown-toggle(data-toggle='dropdown', href='#')
 								| MOTOS
 								span.caret
@@ -56,11 +56,11 @@ html(ng-app='sampleAppin')
 						li(role='presentation')
 							a(href='#') GALERIA
 		.container
-			.row(ng-controller='SampleCtrlcatin')
+			.row(ng-controller='SampleCtrlcatMotoi')
 				.col-md-4.col-md-push-7.phone-preview
 					.iphone-mockup
 				.col-md-6.col-md-pull-3.get-it
-					h4.tipografia2 INSCRITOS A LA CARRERA : #{carrera}
+					h4.tipografia2 INSCRITOS A LA CARRERA : {{carreradirecto}} (MOTOS)
 					h4.tipografia2 Clase
 					select(name='singleSelect', ng-model='data.singleSelect', ng-change='LoadSessionData(data.singleSelect)', style='width:100%')
 						option(value='', disabled='', selected='') Seleccionar Clase
@@ -83,7 +83,7 @@ html(ng-app='sampleAppin')
 								h5.tipografia1
 									| ADM.TEC: {{x1.adm}}
 								h5.tipografia1
-									| Revisión: {{x1.revi}}			
+									| Revisión: {{x1.revi}}					
  
 
 		section.testimonials
@@ -108,5 +108,4 @@ html(ng-app='sampleAppin')
 				messagingSenderId: "25211110334"
 			  };
 			firebase.initializeApp(config);
-					var workflowData = '#{carrera}';
-		script(src='/javascripts/inscritoscarrerad.js')
+		script(src='/javascripts/codigoinscritosmoto.js')

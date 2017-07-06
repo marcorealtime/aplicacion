@@ -43,9 +43,18 @@ html(ng-app='sampleAppindex')
                 li(role='presentation')
                   a(href='/carrera') TIEMPOS GENERAL
             li(role='presentation')
-              a(href='#') GALERIA
+              a.dropdown-toggle(data-toggle='dropdown', href='#')
+                | MOTOS
+                span.caret
+              ul.dropdown-menu
+                li(role='presentation')
+                  a(href='/inscritosmoto') INSCRITOS
+                li(role='presentation')
+                  a(href='/clasificacionmoto') ETAPAS/PRUEBAS ESPECIALES
+                li(role='presentation')
+                  a(href='/carreramoto') TIEMPOS GENERAL
             li(role='presentation')
-              a(href='#') MEDIA
+              a(href='#') GALERIA
     .jumbotron.hero
       .container
         .row
@@ -65,21 +74,30 @@ html(ng-app='sampleAppindex')
       .container
         .row
           .col-md-6
+            center
+              h4.tipografia2 AUTOS
             h4.tipografia2
-              a(href="/inscritos/{{carreradirecto}}")  INSCRITOS
-            br
+              a(href="/inscritos/{{carreradirecto}}")  VER INSCRITOS
             br
             h4.tipografia2
-              a(href="/orden/{{carreradirecto}}")  ORDEN DE LARGADA
-            br
+              a(href="/orden/{{carreradirecto}}")  VER ORDEN DE LARGADA
             br
             h4.tipografia2
               a(href="/clasificacion/{{carreradirecto}}")  VER ETAPAS/PRUEBAS ESPECIALES
             br
+            h4.tipografia2
+              a(href="/carrera/{{carreradirecto}}")   VER CLASIFICACIÓN GENERAL
+            br
+            center
+              h4.tipografia2 MOTOS
+            h4.tipografia2
+              a(href="/inscritosmoto")  VER INSCRITOS
             br
             h4.tipografia2
-              a(href="/carrera/{{carreradirecto}}")  CLASIFICACIÓN GENERAL
+              a(href="/clasificacionmoto")  VER ETAPAS/PRUEBAS ESPECIALES
             br
+            h4.tipografia2
+              a(href="/carreramoto")  VER CLASIFICACIÓN GENERAL
             br
     footer.site-footer
       .container

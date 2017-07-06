@@ -16,6 +16,9 @@ var inscritos = require('./routes/inscritos');
 var orden = require('./routes/orden');
 var clasificacioncir = require('./routes/clasificacioncir');
 var carreracir = require('./routes/carreracir');
+var inscritosmoto = require('./routes/inscritosmoto');
+var clasificacionmoto = require('./routes/clasificacionmoto');
+var carreramoto = require('./routes/carreramoto');
 var app = express();
 
 // view engine setup
@@ -41,7 +44,10 @@ app.use('/inscritos', inscritos);
 app.use('/orden', orden);
 app.use('/clasificacioncir', clasificacioncir);
 app.use('/carreracir',carreracir);
-
+app.use('/inscritosmoto',inscritosmoto);
+app.use('/inscritosmoto',inscritosmoto);
+app.use('/clasificacionmoto',clasificacionmoto);
+app.use('/carreramoto',carreramoto);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
