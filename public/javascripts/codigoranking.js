@@ -14,7 +14,7 @@ app.controller("SampleCtrlcat2", function($scope, $firebaseArray) {
 			        console.log(val);
 			        app.value('Categoria',val);
 			        
-			        var ref = firebase.database().ref().child("ranking/"+val).orderByChild("puntos");
+			        var ref = firebase.database().ref().child("rankingrally/"+val).orderByChild("puntos");
 				  	$scope.ranking = $firebaseArray(ref);
 				  	
 
