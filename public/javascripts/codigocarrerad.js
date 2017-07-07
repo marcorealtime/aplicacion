@@ -24,7 +24,9 @@ app.controller("SampleCtrlcd", function($scope, $firebaseArray) {
 				  		$scope.unitspe3 = [];
 				  		$scope.unitspe2 = [];
 				  		$scope.unitspe1 = [];
+				  		$scope.unitspe0 = [];
 
+				  		var i0=0;
 				  		var i1=0;
 				  		var i2=0;
 				  		var i3=0;
@@ -576,6 +578,59 @@ app.controller("SampleCtrlcd", function($scope, $firebaseArray) {
 											};
 											$scope.unitspe1[i1] = myElement2;
   											i1++;
+
+									}
+
+
+								}
+
+							}
+
+							//prueba especial clasifiacion
+							if(data.child("pe").val()=='CLASIFICACION'){
+								if(data.child("estado").val()=='FINALIZO'){
+
+
+									if(i0==0){
+
+								 			var myElement2 = {
+											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: "-----",
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:"-----",
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+											};
+  							
+											$scope.unitspe0[i0] = myElement2;
+  											i0++;
+
+									}
+									else{
+
+								 			var myElement2 = {
+  											auto: nombretop( data.child("nombre").val(),0),
+  											nombre: nombretop( data.child("nombre").val(),1),
+  											nave: nombretop( data.child("nombre").val(),2),
+ 							   				tiempo: data.child("tiempo").val(),
+ 							   				tiempoa: restTimes(data.child("tiempo").val(), $scope.unitspe0[i0-1].tiempo),
+ 							   				pena: data.child("pena").val(),
+ 							   				km: velocidad(data.child("tiempo").val(),data.child("dis").val()),
+ 							   				tiempop:  restTimes(data.child("tiempo").val(), $scope.unitspe0[0].tiempo),
+ 							   				estado:data.child("estado").val(),
+ 							   				color:'39ac39',
+ 							   				clase:data.child("clase").val(),
+ 							   				pe:data.child("pe").val()
+ 							   	
+											};
+											$scope.unitspe0[i0] = myElement2;
+  											i0++;
 
 									}
 

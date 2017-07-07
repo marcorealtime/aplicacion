@@ -408,6 +408,40 @@ html(ng-app='sampleApp3')
                                     p Velocidad:  {{x1.km}} km/h       
                                     p Dif. C/u:  {{x1.tiempoa}}
                                     p Dif 1° C/u:  {{x1.tiempop}}
+                    .panel.panel-default(ng-repeat='x1 in unitspe0')
+                        .panel-heading(style="background-color: #{{x1.color}};")
+                            h3.panel-title
+                                h5.tipografiain Actualizado a: {{x1.pe}}
+                                center
+                                    h5.tipografia1 {{x1.estado}}
+                                h5.tipografia1 {{unitspe0.indexOf(x1)+1}}
+                                    p.pull-right {{x1.clase}}
+                                h5.tipografia1 
+                                    span.icon-key2
+                                    | {{x1.auto}} 
+                                h5.tipografia1
+                                    span.icon-user
+                                    | {{x1.nombre}}
+                                h5.tipografia1
+                                    span.icon-user-plus
+                                    | {{x1.nave}}
+                                center
+                                    h2  
+                                        #reloj
+                                            | {{x1.tiempo}}
+                                #reloj2
+                                    p.pull-right +{{x1.tiempoa}}
+                                br
+                                #reloj3
+                                    p.text-warning Pena :{{x1.pena}}
+                        .panel-body
+                            a.btn.btn-primary.btn-xs(href='#cor{{unitspe0.indexOf(x1)+1}}', data-toggle='collapse' style='width:100%') INFO
+                            .collapse(id='cor{{unitspe0.indexOf(x1)+1}}')
+                                br
+                                #reloj3
+                                    p Velocidad:  {{x1.km}} km/h       
+                                    p Dif. C/u:  {{x1.tiempoa}}
+                                    p Dif 1° C/u:  {{x1.tiempop}}
                     .panel.panel-default(ng-repeat='x1 in unitsabandono')
                         .panel-heading(style="background-color: #{{x1.color}};")
                             h3.panel-title
