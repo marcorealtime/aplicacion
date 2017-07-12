@@ -3,7 +3,7 @@ html(ng-app='sampleAppCARRD')
     head
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        title GO-TARIJA
+        title CIRCUITO-BOLIVIA
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cosmo/bootstrap.min.css')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700')
         link(rel='stylesheet', href='/stylesheets/styles.min.css')
@@ -13,7 +13,7 @@ html(ng-app='sampleAppCARRD')
             .container
                 .navbar-header
                     a.navbar-brand.navbar-link(href='#')
-                        h3.tipografia3 GO-TARIJA
+                        h3.tipografia3 CIRCUITO-BOLIVIA
                     button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
                         span.sr-only Toggle navigation
                         span.icon-bar
@@ -37,24 +37,9 @@ html(ng-app='sampleAppCARRD')
                                 li(role='presentation')
                                     a(href='/inscritos') INSCRITOS
                                 li(role='presentation')
-                                    a(href='/orden') ORDEN DE LARGADA
+                                    a(href='/clasificacioncir') CLASIFICACIÓN
                                 li(role='presentation')
-                                    a(href='/clasificacion') ETAPAS/PRUEBAS ESPECIALES
-                                li(role='presentation')
-                                    a(href='/carrera') TIEMPOS GENERAL
-                        li(role='presentation')
-                            a.dropdown-toggle(data-toggle='dropdown', href='#')
-                                | MOTOS
-                                span.caret
-                            ul.dropdown-menu
-                                li(role='presentation')
-                                    a(href='/inscritosmoto') INSCRITOS
-                                li(role='presentation')
-                                    a(href='/clasificacionmoto') ETAPAS/PRUEBAS ESPECIALES
-                                li(role='presentation')
-                                    a(href='/carreramoto') TIEMPOS GENERAL
-                        li(role='presentation')
-                            a(href='#') GALERIA
+                                    a(href='/carreracir') CARRERA
         .container
             .row(ng-controller='SampleCtrlCARRD')
                 .col-md-4.col-md-push-7.phone-preview
@@ -479,7 +464,7 @@ html(ng-app='sampleAppCARRD')
             .container
                 .row
                     .col-sm-6
-                        h6.tipografia4 @GO-TARIJA 2017 TODOS LOS DERECHOS RESERVADOS
+                        h6.tipografia4 @CIRCUITO-TARIJA 2017 TODOS LOS DERECHOS RESERVADOS
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js')
@@ -487,14 +472,14 @@ html(ng-app='sampleAppCARRD')
         script(src='https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js')
         script.
             // Initialize Firebase
-                var config = {
-                apiKey: "AIzaSyCAvJ-eDPeK0hvmWWbUJROwJHgZtKl2B6Y",
-                authDomain: "aadeta-7a01d.firebaseapp.com",
-                databaseURL: "https://aadeta-7a01d.firebaseio.com",
-                projectId: "aadeta-7a01d",
-                storageBucket: "aadeta-7a01d.appspot.com",
-                messagingSenderId: "25211110334"
+              var config = {
+                apiKey: "AIzaSyC-4aEU70Wl614QBnvPxM1vfzrLT3BNajM",
+                authDomain: "circuitobolivia.firebaseapp.com",
+                databaseURL: "https://circuitobolivia.firebaseio.com",
+                projectId: "circuitobolivia",
+                storageBucket: "circuitobolivia.appspot.com",
+                messagingSenderId: "67878353766"
               };
-            firebase.initializeApp(config);
+              firebase.initializeApp(config);
              var workflowData = '#{carrera}';
         script(src='/javascripts/codigocarreracird.js')
